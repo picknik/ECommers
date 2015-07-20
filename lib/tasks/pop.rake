@@ -10,8 +10,6 @@ def products count: 1, clean: false
 
   Product.delete_all if clean
 
-  collection = []
-
   count.times do |n|
     product = Product.new
 
@@ -25,7 +23,7 @@ def products count: 1, clean: false
 
     product.reorder_level  = rand(10..100)
 
-    collection.push product if product.save!
+    product.save!
   end
 
   Product.last(count)
