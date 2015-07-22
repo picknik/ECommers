@@ -3,11 +3,13 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.3'
 
 gem 'faker'
+gem 'haml'
 
 group :development, :test do
   gem 'sqlite3'
 
   gem 'rspec-rails', '~> 3.3.3'
+  gem 'json_spec', git: 'git://github.com/collectiveidea/json_spec.git'
   gem 'database_cleaner'
   gem 'capybara'
   gem 'factory_girl_rails'
