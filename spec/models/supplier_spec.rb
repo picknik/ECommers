@@ -46,4 +46,16 @@ RSpec.describe Supplier, type: :model do
     before { supplier.company_name = ' ' }
     it { should_not be_valid }
   end
+
+  it "associates with a products as has_many" do
+    product_1 = FactoryGirl.create(:product)
+    product_2 = FactoryGirl.create(:product)
+    supplier.products << product_1
+    supplier.products << product_2
+    supplier.save!
+
+    expect(supplier.products.first).to be product_1
+    expect(supplier.products.last).to  be product_2
+    expect(supplier.products.count).to be 2
+  end
 end

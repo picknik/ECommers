@@ -70,17 +70,18 @@ RSpec.describe Product, type: :model do
     end
   end
 
-  it "associates with product as many to many" do
+  it "associates with categories as many to many" do
     category = FactoryGirl.build(:category)
     product.categories << category
     product.save!
     expect(product.categories.count).to be 1
   end
 
-  it "associates with product as belongs_to" do
-    category = FactoryGirl.build(:category)
-    product.categories << category
+  it "associates with supplier as belongs_to" do
+    supplier = FactoryGirl.create(:supplier)
+    product.supplier = supplier
     product.save!
-    expect(product.categories.count).to be 1
+
+    expect(product.supplier).to be supplier
   end
 end
