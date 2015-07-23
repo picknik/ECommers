@@ -30,6 +30,9 @@ RSpec.describe Product, type: :model do
   it { should respond_to :can_buy? } # it takes count in first arg
   it { should respond_to :total }    # it counts price with discount
 
+#has_and_belongs_to_many
+  it { should respond_to :categories }
+
   it { should be_valid }
 
   describe "when a name is not presence" do
@@ -62,5 +65,12 @@ RSpec.describe Product, type: :model do
     it "should be 95 dollars" do
       expect(product.total).to eq 95
     end
+  end
+
+  it "associates with product" do
+    category = FactoryGirl.build(:category)
+    product.categories << category
+    product.save!
+    expect(product.categories.count).to be 1
   end
 end

@@ -8,11 +8,15 @@ RSpec.describe Category, type: :model do
 
   subject { category }
 
+#fields
   it { should respond_to :name }
   it { should respond_to :description }
   it { should respond_to :picture }
   it { should respond_to :created_at }
   it { should respond_to :updated_at}
+
+#has_and_belongs_to_many
+  it { should respond_to :products }
 
   it { should be_valid }
 
@@ -54,5 +58,12 @@ RSpec.describe Category, type: :model do
     it "should capitalized a description" do
       expect(category.reload.description).to eq description.capitalize
     end
+  end
+
+  it "associates with product" do
+    product = FactoryGirl.build(:product)
+    category.products << product
+    category.save!
+    expect(category.products.count).to be 1
   end
 end
