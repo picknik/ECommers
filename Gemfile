@@ -4,6 +4,7 @@ gem 'rails', '4.2.3'
 
 gem 'faker'
 gem 'haml'
+gem 'paperclip', '~> 4.3'
 
 group :development, :test do
   gem 'sqlite3'
