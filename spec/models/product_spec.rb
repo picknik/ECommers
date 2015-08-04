@@ -25,6 +25,7 @@ RSpec.describe Product, type: :model do
   it { should respond_to :reorder_level }
   it { should respond_to :created_at}
   it { should respond_to :updated_at }
+  it { should respond_to :line_items }
 
 #methods
   it { should respond_to :can_buy? } # it takes count in first arg

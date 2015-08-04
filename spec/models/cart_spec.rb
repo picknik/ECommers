@@ -1,5 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Cart, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  let(:cart){ Cart.new }
+
+  subject { cart }
+
+#fields
+  it { should respond_to :line_items }
+  it { should respond_to :products }
+
+  it { should be_valid }
+
 end
