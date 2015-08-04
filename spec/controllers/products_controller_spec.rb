@@ -131,7 +131,7 @@ RSpec.describe ProductsController, type: :controller do
       it "returns a newly created product as JSON format" do
         post :create, { format: 'json', product: valid }
         expect(response.headers['Content-Type']).to include 'application/json'
-        expect(response.body).to be_json_eql(valid.to_json).excluding("id", "reorder_level")
+        expect(response.body).to be_json_eql(valid.to_json).excluding("id", "reorder_level", "supplier_id")
       end
 
       it "creates a new product with ajax" do
