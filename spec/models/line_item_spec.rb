@@ -10,6 +10,7 @@ RSpec.describe LineItem, type: :model do
   it { should respond_to :id }
   it { should respond_to :product }
   it { should respond_to :cart }
+  it { should respond_to :order }
   it { should respond_to :created_at }
   it { should respond_to :updated_at }
 

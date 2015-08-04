@@ -31,6 +31,8 @@ RSpec.describe Order, type: :model do
   it { should respond_to :delivered }
   it { should respond_to :created_at }
   it { should respond_to :updated_at }
+  it { should respond_to :line_items }
+  it { should respond_to :products }
 
   it { should be_valid }
 
